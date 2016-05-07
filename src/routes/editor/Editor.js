@@ -19,30 +19,7 @@ class Editor extends Component {
   render() {
     return (
       <div>
-        <h1>
->
-          Create a New Post
-        </h1>
-
-        <p>
-          Header Image
-        </p>
-        <textarea></textarea>
-
-        <p>
-          Headline
-        </p>
-        <textarea className="headline"></textarea>
-
-        <p>
-          Author
-        </p>
-        <textarea className="author"></textarea>
-
-        <p>
-          Text Box
-        </p>
-        <textarea className="body"></textarea>
+        <p>NOT THIS EDITOR</p>
       </div>
     );
   }

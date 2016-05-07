@@ -7,16 +7,39 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes} from 'react';
+
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import $ from 'jquery';
+import Header from '../Header';
+import emptyFunction from 'fbjs/lib/emptyFunction';
+import Link from '../Link';
 
-
+//import style from './FloatEditor.scss';
 const title = 'New Post';
 const apiUrl = 'http://localhost:8000/foo';
+const homePage = 'http://localhost:3001';
+
 
 class FloatEditor extends Component {
-
+  //static childContextTypes = {
+  //  insertCss: PropTypes.func.isRequired,
+  //  setTitle: PropTypes.func.isRequired,
+  //  setMeta: PropTypes.func.isRequired,
+  //};
+  //getChildContext() {
+  //  const context = this.props.context;
+  //  var css = [];
+  //  return {
+  //    insertCss: styles => css.push(styles._getCss()),
+  //    setTitle: value => (data.title = value),
+  //    setMeta: (key, value) => (data[key] = value)
+  //  };
+  //}
+  //componentWillMount() {
+  //  const { insertCss } = this.props.context;
+  //  this.removeCss = insertCss(s);
+  //}
   postSimpleText(){
     console.log("request sent");
 
@@ -50,18 +73,21 @@ class FloatEditor extends Component {
 
   }
 
+  linkBackToHomePage() {
+    console.log("Link Back to Homepage");
+    window.location.href = homePage;
+  }
+
+
   render() {
     return (
       <div>
-        <h1>
-          >
+        <p></p>
+        <Link to="/">Back</Link>
+
+        <h1 className="create-post">
           Create a New Post
         </h1>
-
-        <p>
-          Header Image
-        </p>
-        <textarea></textarea>
 
         <p>
           Headline
@@ -77,11 +103,14 @@ class FloatEditor extends Component {
           Text Box
         </p>
         <textarea className="body"></textarea>
-        <button onClick={this.postSimpleText}></button>
+        <p></p>
+        <button onClick={this.postSimpleText}>Submit</button>
       </div>
     );
   }
 }
-//Editor.contextTypes = { setTitle: PropTypes.func.isRequired };
+
+
+//FloatEditor.contextTypes = { setTitle: PropTypes.func.isRequired };
 
 export default (FloatEditor)

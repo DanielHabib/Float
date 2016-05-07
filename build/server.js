@@ -2546,7 +2546,7 @@ module.exports =
       ),
       _react2.default.createElement(
         _Link2.default,
-        { className: _Navigation2.default.link, to: '/editor' },
+        { className: _Navigation2.default.link, to: 'http://localhost:3000/editor' },
         'Create'
       ),
       _react2.default.createElement(
@@ -4248,18 +4248,33 @@ module.exports =
   
   var _jquery2 = _interopRequireDefault(_jquery);
   
+  var _Header = __webpack_require__(57);
+  
+  var _Header2 = _interopRequireDefault(_Header);
+  
+  var _emptyFunction = __webpack_require__(50);
+  
+  var _emptyFunction2 = _interopRequireDefault(_emptyFunction);
+  
+  var _Link = __webpack_require__(61);
+  
+  var _Link2 = _interopRequireDefault(_Link);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'New Post'; /**
-                           * React Starter Kit (https://www.reactstarterkit.com/)
-                           *
-                           * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                           *
-                           * This source code is licensed under the MIT license found in the
-                           * LICENSE.txt file in the root directory of this source tree.
-                           */
+  //import style from './FloatEditor.scss';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
+  var title = 'New Post';
   var apiUrl = 'http://localhost:8000/foo';
+  var homePage = 'http://localhost:3001';
   
   var FloatEditor = function (_Component) {
     (0, _inherits3.default)(FloatEditor, _Component);
@@ -4271,6 +4286,25 @@ module.exports =
   
     (0, _createClass3.default)(FloatEditor, [{
       key: 'postSimpleText',
+  
+      //static childContextTypes = {
+      //  insertCss: PropTypes.func.isRequired,
+      //  setTitle: PropTypes.func.isRequired,
+      //  setMeta: PropTypes.func.isRequired,
+      //};
+      //getChildContext() {
+      //  const context = this.props.context;
+      //  var css = [];
+      //  return {
+      //    insertCss: styles => css.push(styles._getCss()),
+      //    setTitle: value => (data.title = value),
+      //    setMeta: (key, value) => (data[key] = value)
+      //  };
+      //}
+      //componentWillMount() {
+      //  const { insertCss } = this.props.context;
+      //  this.removeCss = insertCss(s);
+      //}
       value: function postSimpleText() {
         console.log("request sent");
   
@@ -4302,22 +4336,28 @@ module.exports =
         });
       }
     }, {
+      key: 'linkBackToHomePage',
+      value: function linkBackToHomePage() {
+        console.log("Link Back to Homepage");
+        window.location.href = homePage;
+      }
+    }, {
       key: 'render',
       value: function render() {
         return _react2.default.createElement(
           'div',
           null,
+          _react2.default.createElement('p', null),
+          _react2.default.createElement(
+            _Link2.default,
+            { to: '/' },
+            'Back'
+          ),
           _react2.default.createElement(
             'h1',
-            null,
-            '> Create a New Post'
+            { className: 'create-post' },
+            'Create a New Post'
           ),
-          _react2.default.createElement(
-            'p',
-            null,
-            'Header Image'
-          ),
-          _react2.default.createElement('textarea', null),
           _react2.default.createElement(
             'p',
             null,
@@ -4336,13 +4376,19 @@ module.exports =
             'Text Box'
           ),
           _react2.default.createElement('textarea', { className: 'body' }),
-          _react2.default.createElement('button', { onClick: this.postSimpleText })
+          _react2.default.createElement('p', null),
+          _react2.default.createElement(
+            'button',
+            { onClick: this.postSimpleText },
+            'Submit'
+          )
         );
       }
     }]);
     return FloatEditor;
   }(_react.Component);
-  //Editor.contextTypes = { setTitle: PropTypes.func.isRequired };
+  
+  //FloatEditor.contextTypes = { setTitle: PropTypes.func.isRequired };
   
   exports.default = FloatEditor;
 
