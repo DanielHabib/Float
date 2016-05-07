@@ -24,7 +24,6 @@ export default {
   path: '/',
 
   children: [
-    home,
     contact,
     login,
     register,

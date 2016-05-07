@@ -11,7 +11,7 @@ import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Contact.scss';
 
-const title = 'Contact Us Foo';
+const title = 'Reach Out!';
 
 function Contact(props, context) {
   context.setTitle(title);
@@ -19,7 +19,7 @@ function Contact(props, context) {
     <div className={s.root}>
       <div className={s.container}>
         <h1>{title}</h1>
-        <p>...</p>
+        <p>Have Questions? Email me at d.g.habib7@gmail.com</p>
       </div>
     </div>
   );

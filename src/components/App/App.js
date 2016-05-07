@@ -13,6 +13,7 @@ import s from './App.scss';
 import Header from '../Header';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
+import Bottom from '../Bottom';
 
 class App extends Component {
 
@@ -55,12 +56,13 @@ class App extends Component {
       <div>
         <Header />
         {this.props.children}
-        <Feedback />
-        <Footer />
+        <Bottom>
+          <Feedback />
+          <Footer />
+        </Bottom>
       </div>
     ) : this.props.children;
   }
-
 }
 
 export default App;

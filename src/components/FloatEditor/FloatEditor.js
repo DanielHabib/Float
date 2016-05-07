@@ -78,7 +78,6 @@ class FloatEditor extends Component {
     window.location.href = homePage;
   }
 
-
   render() {
     return (
       <div>
@@ -109,7 +108,6 @@ class FloatEditor extends Component {
     );
   }
 }
-
 
 //FloatEditor.contextTypes = { setTitle: PropTypes.func.isRequired };
 
