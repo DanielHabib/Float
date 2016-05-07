@@ -8,14 +8,21 @@
  */
 
 import React from 'react';
-import Editor from './Editor';
+import App from '../../components/App';
+import ErrorPage from '../error/ErrorPage';
 
+import Editor from './Editor.js';
 export default {
 
   path: '/editor',
 
-  action() {
-    return <Editor />;
+  action({ render, context, error }) {
+    return render(
+      <div>
+        <h1>Booya</h1>
+        <Editor />
+      </div>
+    );
   },
 
-};
+}

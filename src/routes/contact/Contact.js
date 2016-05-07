@@ -11,7 +11,7 @@ import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Contact.scss';
 
-const title = 'Contact Us';
+const title = 'Contact Us Foo';
 
 function Contact(props, context) {
   context.setTitle(title);

@@ -112,7 +112,7 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(107);
+  var _assets = __webpack_require__(103);
   
   var _assets2 = _interopRequireDefault(_assets);
   
@@ -198,7 +198,7 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(108);
+                        template = __webpack_require__(104);
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
   
@@ -277,7 +277,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(110);
+    var template = __webpack_require__(106);
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -1653,7 +1653,7 @@ module.exports =
   
   var _error2 = _interopRequireDefault(_error);
   
-  var _editor = __webpack_require__(103);
+  var _editor = __webpack_require__(111);
   
   var _editor2 = _interopRequireDefault(_editor);
   
@@ -1663,7 +1663,7 @@ module.exports =
   
     path: '/',
   
-    children: [_home2.default, _contact2.default, _login2.default, _register2.default, _content2.default, _error2.default, _editor2.default],
+    children: [_home2.default, _contact2.default, _login2.default, _register2.default, _content2.default, _editor2.default, _error2.default],
   
     action: function action(_ref) {
       var _this = this;
@@ -3206,14 +3206,14 @@ module.exports =
   
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'Contact Us'; /**
-                             * React Starter Kit (https://www.reactstarterkit.com/)
-                             *
-                             * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                             *
-                             * This source code is licensed under the MIT license found in the
-                             * LICENSE.txt file in the root directory of this source tree.
-                             */
+  var title = 'Contact Us Foo'; /**
+                                 * React Starter Kit (https://www.reactstarterkit.com/)
+                                 *
+                                 * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                                 *
+                                 * This source code is licensed under the MIT license found in the
+                                 * LICENSE.txt file in the root directory of this source tree.
+                                 */
   
   function Contact(props, context) {
     context.setTitle(title);
@@ -4150,163 +4150,15 @@ module.exports =
 
 /***/ },
 /* 103 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _react = __webpack_require__(43);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _Editor = __webpack_require__(104);
-  
-  var _Editor2 = _interopRequireDefault(_Editor);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
-  
-  exports.default = {
-  
-    path: '/editor',
-  
-    action: function action() {
-      return _react2.default.createElement(_Editor2.default, null);
-    }
-  };
-
-/***/ },
-/* 104 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _react = __webpack_require__(43);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  var _withStyles = __webpack_require__(58);
-  
-  var _withStyles2 = _interopRequireDefault(_withStyles);
-  
-  var _Editor = __webpack_require__(105);
-  
-  var _Editor2 = _interopRequireDefault(_Editor);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var title = 'New Post'; /**
-                           * React Starter Kit (https://www.reactstarterkit.com/)
-                           *
-                           * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                           *
-                           * This source code is licensed under the MIT license found in the
-                           * LICENSE.txt file in the root directory of this source tree.
-                           */
-  
-  function Editor(props, context) {
-    context.setTitle(title);
-    return _react2.default.createElement(
-      'div',
-      { className: _Editor2.default.root },
-      _react2.default.createElement(
-        'div',
-        { className: _Editor2.default.container },
-        _react2.default.createElement(
-          'h1',
-          null,
-          title
-        ),
-        _react2.default.createElement(
-          'p',
-          null,
-          '...'
-        )
-      )
-    );
-  }
-  
-  Editor.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
-  
-  exports.default = (0, _withStyles2.default)(_Editor2.default)(Editor);
-
-/***/ },
-/* 105 */
-/***/ function(module, exports, __webpack_require__) {
-
-  
-      var content = __webpack_require__(106);
-      var insertCss = __webpack_require__(54);
-  
-      if (typeof content === 'string') {
-        content = [[module.id, content, '']];
-      }
-  
-      module.exports = content.locals || {};
-      module.exports._getCss = function() { return content.toString(); };
-      module.exports._insertCss = function(options) { return insertCss(content, options) };
-    
-      // Hot Module Replacement
-      // https://webpack.github.io/docs/hot-module-replacement
-      // Only activated in browser context
-      if (false) {
-        var removeCss = function() {};
-        module.hot.accept("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./Editor.scss", function() {
-          content = require("!!./../../../node_modules/css-loader/index.js?{\"sourceMap\":true,\"modules\":true,\"localIdentName\":\"[name]_[local]_[hash:base64:3]\",\"minimize\":false}!./../../../node_modules/postcss-loader/index.js?parser=postcss-scss!./Editor.scss");
-  
-          if (typeof content === 'string') {
-            content = [[module.id, content, '']];
-          }
-  
-          removeCss = insertCss(content, { replace: true });
-        });
-        module.hot.dispose(function() { removeCss(); });
-      }
-    
-
-/***/ },
-/* 106 */
-/***/ function(module, exports, __webpack_require__) {
-
-  exports = module.exports = __webpack_require__(53)();
-  // imports
-  
-  
-  // module
-  exports.push([module.id, "/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n/*\n * Colors\n * ========================================================================== */\n\n/* #222 */\n\n/* #404040 */\n\n/* #555 */\n\n/* #777 */\n\n/* #eee */\n\n/*\n * Typography\n * ========================================================================== */\n\n/*\n * Layout\n * ========================================================================== */\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n/* Extra small screen / phone */\n\n/* Small screen / tablet */\n\n/* Medium screen / desktop */\n\n/* Large screen / wide desktop */\n\n.Editor_root_2X3 {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.Editor_container_Rsq {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: 1000px;\n}\n", "", {"version":3,"sources":["/./routes/editor/Editor.scss","/./components/variables.scss"],"names":[],"mappings":"AAAA;;;;;;;GAOG;;ACPH;;gFAEgF;;AAGjC,UAAU;;AACV,aAAa;;AACb,UAAU;;AACV,UAAU;;AACV,UAAU;;AAEzD;;gFAEgF;;AAIhF;;gFAEgF;;AAIhF;;gFAEgF;;AAExD,gCAAgC;;AAChC,2BAA2B;;AAC3B,6BAA6B;;AAC7B,iCAAiC;;ADnBzD;EACE,mBAAmB;EACnB,oBAAoB;CACrB;;AAED;EACE,eAAe;EACf,kBAAkB;EAClB,kBAA8B;CAC/B","file":"Editor.scss","sourcesContent":["/**\n * React Starter Kit (https://www.reactstarterkit.com/)\n *\n * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.\n *\n * This source code is licensed under the MIT license found in the\n * LICENSE.txt file in the root directory of this source tree.\n */\n\n@import '../../components/variables.scss';\n\n.root {\n  padding-left: 20px;\n  padding-right: 20px;\n}\n\n.container {\n  margin: 0 auto;\n  padding: 0 0 40px;\n  max-width: $max-content-width;\n}\n","/*\n * Colors\n * ========================================================================== */\n\n$white-base: hsl(255, 255, 255);\n$gray-darker: color(black lightness(+13.5%));  /* #222 */\n$gray-dark: color(black lightness(+25%));      /* #404040 */\n$gray: color(black lightness(+33.5%));         /* #555 */\n$gray-light: color(black lightness(+46.7%));   /* #777 */\n$gray-lighter: color(black lightness(+93.5%)); /* #eee */\n\n/*\n * Typography\n * ========================================================================== */\n\n$font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;\n\n/*\n * Layout\n * ========================================================================== */\n\n$max-content-width: 1000px;\n\n/*\n * Media queries breakpoints\n * ========================================================================== */\n\n$screen-xs-min: 480px;  /* Extra small screen / phone */\n$screen-sm-min: 768px;  /* Small screen / tablet */\n$screen-md-min: 992px;  /* Medium screen / desktop */\n$screen-lg-min: 1200px; /* Large screen / wide desktop */\n"],"sourceRoot":"webpack://"}]);
-  
-  // exports
-  exports.locals = {
-  	"root": "Editor_root_2X3",
-  	"container": "Editor_container_Rsq"
-  };
-
-/***/ },
-/* 107 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 108 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(109);
+  var jade = __webpack_require__(105);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/daniel.habib/repos/Float/src/views/index.jade" ) ];
@@ -4409,7 +4261,7 @@ module.exports =
   }
 
 /***/ },
-/* 109 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4661,10 +4513,10 @@ module.exports =
 
 
 /***/ },
-/* 110 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(109);
+  var jade = __webpack_require__(105);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/daniel.habib/repos/Float/src/views/error.jade" ) ];
@@ -4943,6 +4795,120 @@ module.exports =
     jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(lang=\"en\")\n  head\n    meta(charset=\"utf-8\")\n    title Internal Server Error\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1\")\n    style.\n      * {\n        line-height: 1.2;\n        margin: 0;\n      }\n\n      html {\n        color: #888;\n        display: table;\n        font-family: sans-serif;\n        height: 100%;\n        text-align: center;\n        width: 100%;\n      }\n\n      body {\n        display: table-cell;\n        vertical-align: middle;\n        margin: 2em auto;\n      }\n\n      h1 {\n        color: #555;\n        font-size: 2em;\n        font-weight: 400;\n      }\n\n      p {\n        margin: 0 auto;\n        width: 280px;\n      }\n\n      pre {\n        text-align: left;\n        margin-top: 2rem;\n      }\n\n      @media only screen and (max-width: 280px) {\n\n        body, p {\n          width: 95%;\n        }\n\n        h1 {\n          font-size: 1.5em;\n          margin: 0 0 0.3em;\n        }\n\n      }\n\n  body\n    h1 Internal Server Error\n    p Sorry, something went wrong.\n    pre= stack\n// IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx\n");
   }
   }
+
+/***/ },
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(43);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _App = __webpack_require__(44);
+  
+  var _App2 = _interopRequireDefault(_App);
+  
+  var _ErrorPage = __webpack_require__(100);
+  
+  var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
+  
+  var _Editor = __webpack_require__(112);
+  
+  var _Editor2 = _interopRequireDefault(_Editor);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  exports.default = {
+  
+    path: '/editor',
+  
+    action: function action(_ref) {
+      var render = _ref.render;
+      var context = _ref.context;
+      var error = _ref.error;
+  
+      return render(_react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Booya'
+        ),
+        _react2.default.createElement(_Editor2.default, null)
+      ));
+    }
+  };
+
+/***/ },
+/* 112 */
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _react = __webpack_require__(43);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  var _withStyles = __webpack_require__(58);
+  
+  var _withStyles2 = _interopRequireDefault(_withStyles);
+  
+  var _Contact = __webpack_require__(85);
+  
+  var _Contact2 = _interopRequireDefault(_Contact);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var title = 'New Post';
+  //import s from './Editor.scss';
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
+  
+  function Editor(props, context) {
+  
+    return _react2.default.createElement(
+      'div',
+      null,
+      _react2.default.createElement(
+        'h1',
+        null,
+        'MADE IT ALL THE WAY TO THE EDITOR JS'
+      )
+    );
+  }
+  Editor.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
+  
+  exports.default = Editor;
 
 /***/ }
 /******/ ]);

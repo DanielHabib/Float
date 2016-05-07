@@ -29,8 +29,8 @@ export default {
     login,
     register,
     content,
-    error,
     editor,
+    error
   ],
 
   async action({ next, render, context }) {
