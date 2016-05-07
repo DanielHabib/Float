@@ -11,7 +11,7 @@ import React from 'react';
 import App from '../../components/App';
 import ErrorPage from '../error/ErrorPage';
 
-import Editor from './Editor.js';
+import FloatEditor from '../../components/FloatEditor/FloatEditor';
 export default {
 
   path: '/editor',
@@ -19,8 +19,7 @@ export default {
   action({ render, context, error }) {
     return render(
       <div>
-        <h1>Booya</h1>
-        <Editor />
+        <FloatEditor />
       </div>
     );
   },

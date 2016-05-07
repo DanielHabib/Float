@@ -9,18 +9,45 @@
 
 import React, { Component, PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
-//import s from './Editor.scss';
-import s from '../contact/Contact.scss';
+import $ from 'jquery';
+
 
 const title = 'New Post';
+const apiUrl = 'http://localhost:8000/foo';
 
-class Editor extends Component {
+class FloatEditor extends Component {
+
+  postSimpleText(){
+    console.log("request sent");
+    var request = $.ajax({
+      url: apiUrl,
+      type: "POST",
+      data: {
+        headline: "headline foo",
+        author: "author foo",
+        body: "body foo"
+      },
+      dataType: "html"
+
+    });
+
+    request.done(function(msg) {
+      alert( "Request success: " + msg );
+
+      //$("#log").html( msg );
+    });
+
+    request.fail(function(jqXHR, textStatus) {
+      alert( "Request failed: " + textStatus );
+    });
+
+  }
 
   render() {
     return (
       <div>
         <h1>
->
+          >
           Create a New Post
         </h1>
 
@@ -43,10 +70,11 @@ class Editor extends Component {
           Text Box
         </p>
         <textarea className="body"></textarea>
+        <button onClick={this.postSimpleText}></button>
       </div>
     );
   }
 }
 //Editor.contextTypes = { setTitle: PropTypes.func.isRequired };
 
-export default (Editor)
+export default (FloatEditor)
