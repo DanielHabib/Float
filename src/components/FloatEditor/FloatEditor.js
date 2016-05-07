@@ -19,15 +19,22 @@ class FloatEditor extends Component {
 
   postSimpleText(){
     console.log("request sent");
+
+    var headline = $('.headline').val(),
+        author = $('.author').val(),
+        body = $('.body').val();
+
+
     var request = $.ajax({
       url: apiUrl,
       type: "POST",
-      data: {
-        headline: "headline foo",
-        author: "author foo",
-        body: "body foo"
-      },
-      dataType: "html"
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      data: JSON.stringify({
+        headline: headline,
+        author: author,
+        body: body
+      }),
 
     });
 

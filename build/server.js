@@ -4212,6 +4212,10 @@ module.exports =
     value: true
   });
   
+  var _stringify = __webpack_require__(55);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
   var _getPrototypeOf = __webpack_require__(45);
   
   var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -4269,15 +4273,21 @@ module.exports =
       key: 'postSimpleText',
       value: function postSimpleText() {
         console.log("request sent");
+  
+        var headline = (0, _jquery2.default)('.headline').val(),
+            author = (0, _jquery2.default)('.author').val(),
+            body = (0, _jquery2.default)('.body').val();
+  
         var request = _jquery2.default.ajax({
           url: apiUrl,
           type: "POST",
-          data: {
-            headline: "headline foo",
-            author: "author foo",
-            body: "body foo"
-          },
-          dataType: "html"
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          data: (0, _stringify2.default)({
+            headline: headline,
+            author: author,
+            body: body
+          })
   
         });
   
