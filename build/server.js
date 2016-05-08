@@ -4360,8 +4360,8 @@ module.exports =
    */
   
   var title = 'New Post';
-  var apiUrl = 'http://localhost:8000/foo';
-  var homePage = 'http://localhost:3001';
+  var apiUrl = 'http://localhost:8000/amp';
+  var homePage = '/';
   
   var FloatEditor = function (_Component) {
     (0, _inherits3.default)(FloatEditor, _Component);
@@ -4373,25 +4373,6 @@ module.exports =
   
     (0, _createClass3.default)(FloatEditor, [{
       key: 'postSimpleText',
-  
-      //static childContextTypes = {
-      //  insertCss: PropTypes.func.isRequired,
-      //  setTitle: PropTypes.func.isRequired,
-      //  setMeta: PropTypes.func.isRequired,
-      //};
-      //getChildContext() {
-      //  const context = this.props.context;
-      //  var css = [];
-      //  return {
-      //    insertCss: styles => css.push(styles._getCss()),
-      //    setTitle: value => (data.title = value),
-      //    setMeta: (key, value) => (data[key] = value)
-      //  };
-      //}
-      //componentWillMount() {
-      //  const { insertCss } = this.props.context;
-      //  this.removeCss = insertCss(s);
-      //}
       value: function postSimpleText() {
         console.log("request sent");
   
@@ -4431,6 +4412,85 @@ module.exports =
     }, {
       key: 'render',
       value: function render() {
+        var styles = {
+          Headline: {
+            'background-color': 'blue'
+          },
+          Author: {
+            'background-color': 'red'
+          },
+          Body: {
+            'background-color': 'green'
+          },
+          label: {
+            'backgroundColor': 'clear',
+            'padding-left': '16px'
+          },
+          submit: {
+  
+            left: '300px',
+            'backgroundColor': '#44c767',
+            'MozBorderRadius': '28px',
+            'WebkitBorderRadius': '28px',
+            'borderRadius': '28px',
+            'border': '1px solid #18ab29',
+            'display': 'inline-block',
+            'cursor': 'pointer',
+            'color': '#ffffff',
+            'fontFamily': 'Arial',
+            'fontSize': '17px',
+            'padding': '16px 31px',
+            'textDecoration': 'none',
+            'textShadow': '0px 1px 0px #2f6627'
+          },
+  
+          textarea: {
+            'display': 'inline-block',
+            'WebkitBoxSizing': 'content-box',
+            'MozBoxSizing': 'content-box',
+            'boxSizing': 'content-box',
+            'padding': '6px 20px',
+            'border': 'none',
+            'WebkitBorderRadius': '32px / 54px',
+            'borderRadius': '32px / 54px',
+            font: 'normal 18px/normal "Coda", Helvetica, sans-serif',
+            color: 'rgba(0,142,198,1)',
+            'textOverflow': 'ellipsis',
+            background: 'rgba(252,252,252,1)',
+            'WebkitBoxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+            'boxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+            'textShadow': '1px 1px 0 rgba(255,255,255,0.66)',
+            'WebkitTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+            'MozTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+            'Otransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+            'transition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)'
+          },
+  
+          largeTextarea: {
+            width: '90%',
+            height: '400px',
+            'display': 'inline-block',
+            'WebkitBoxSizing': 'content-box',
+            'MozBoxSizing': 'content-box',
+            'boxSizing': 'content-box',
+            'padding': '6px 20px',
+            'border': 'none',
+            'WebkitBorderRadius': '32px / 54px',
+            'borderRadius': '32px / 54px',
+            font: 'normal 18px/normal "Coda", Helvetica, sans-serif',
+            color: 'rgba(0,142,198,1)',
+            'textOverflow': 'ellipsis',
+            background: 'rgba(252,252,252,1)',
+            'WebkitBoxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+            'boxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+            'textShadow': '1px 1px 0 rgba(255,255,255,0.66)',
+            'WebkitTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+            'MozTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+            'Otransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+            'transition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)'
+          }
+  
+        };
         return _react2.default.createElement(
           'div',
           null,
@@ -4447,26 +4507,32 @@ module.exports =
           ),
           _react2.default.createElement(
             'p',
-            null,
+            { style: styles.label },
             'Headline'
           ),
-          _react2.default.createElement('textarea', { className: 'headline' }),
+          _react2.default.createElement('textarea', {
+            style: styles.textarea,
+            className: 'headline',
+            placeholder: 'Headline' }),
           _react2.default.createElement(
             'p',
-            null,
+            { style: styles.label },
             'Author'
           ),
-          _react2.default.createElement('textarea', { className: 'author' }),
+          _react2.default.createElement('textarea', {
+            style: styles.textarea,
+            className: 'author',
+            placeholder: 'Author' }),
           _react2.default.createElement(
             'p',
-            null,
+            { style: styles.label },
             'Text Box'
           ),
-          _react2.default.createElement('textarea', { className: 'body' }),
+          _react2.default.createElement('textarea', { style: styles.largeTextarea, className: 'body', placeholder: 'Write Away' }),
           _react2.default.createElement('p', null),
           _react2.default.createElement(
             'button',
-            { onClick: this.postSimpleText },
+            { style: styles.submit, onClick: this.postSimpleText },
             'Submit'
           )
         );

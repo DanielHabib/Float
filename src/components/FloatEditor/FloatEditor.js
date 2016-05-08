@@ -17,29 +17,12 @@ import Link from '../Link';
 
 //import style from './FloatEditor.scss';
 const title = 'New Post';
-const apiUrl = 'http://localhost:8000/foo';
-const homePage = 'http://localhost:3001';
+const apiUrl = 'http://localhost:8000/amp';
+const homePage = '/';
 
 
 class FloatEditor extends Component {
-  //static childContextTypes = {
-  //  insertCss: PropTypes.func.isRequired,
-  //  setTitle: PropTypes.func.isRequired,
-  //  setMeta: PropTypes.func.isRequired,
-  //};
-  //getChildContext() {
-  //  const context = this.props.context;
-  //  var css = [];
-  //  return {
-  //    insertCss: styles => css.push(styles._getCss()),
-  //    setTitle: value => (data.title = value),
-  //    setMeta: (key, value) => (data[key] = value)
-  //  };
-  //}
-  //componentWillMount() {
-  //  const { insertCss } = this.props.context;
-  //  this.removeCss = insertCss(s);
-  //}
+
   postSimpleText(){
     console.log("request sent");
 
@@ -79,31 +62,120 @@ class FloatEditor extends Component {
   }
 
   render() {
+    var styles = {
+      Headline: {
+        'background-color' : 'blue'
+      },
+      Author: {
+        'background-color': 'red'
+      },
+      Body: {
+        'background-color': 'green'
+      },
+      label: {
+        'backgroundColor': 'clear',
+        'padding-left': '16px',
+      },
+      submit: {
+
+        left: '300px',
+        'backgroundColor':'#44c767',
+      'MozBorderRadius':'28px',
+      'WebkitBorderRadius':'28px',
+      'borderRadius':'28px',
+      'border':'1px solid #18ab29',
+      'display':'inline-block',
+      'cursor':'pointer',
+      'color':'#ffffff',
+      'fontFamily':'Arial',
+      'fontSize':'17px',
+      'padding':'16px 31px',
+      'textDecoration':'none',
+      'textShadow':'0px 1px 0px #2f6627',
+    },
+
+      textarea: {
+      'display': 'inline-block',
+      'WebkitBoxSizing': 'content-box',
+      'MozBoxSizing': 'content-box',
+      'boxSizing': 'content-box',
+      'padding': '6px 20px',
+      'border': 'none',
+      'WebkitBorderRadius': '32px / 54px',
+      'borderRadius':'32px / 54px',
+      font: 'normal 18px/normal "Coda", Helvetica, sans-serif',
+      color: 'rgba(0,142,198,1)',
+      'textOverflow': 'ellipsis',
+      background: 'rgba(252,252,252,1)',
+      'WebkitBoxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+      'boxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+      'textShadow': '1px 1px 0 rgba(255,255,255,0.66)',
+      'WebkitTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+      'MozTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+      'Otransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+      'transition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+    },
+
+      largeTextarea: {
+      width: '90%',
+      height: '400px',
+      'display': 'inline-block',
+      'WebkitBoxSizing': 'content-box',
+      'MozBoxSizing': 'content-box',
+      'boxSizing': 'content-box',
+      'padding': '6px 20px',
+      'border': 'none',
+      'WebkitBorderRadius': '32px / 54px',
+      'borderRadius':'32px / 54px',
+      font: 'normal 18px/normal "Coda", Helvetica, sans-serif',
+      color: 'rgba(0,142,198,1)',
+      'textOverflow': 'ellipsis',
+      background: 'rgba(252,252,252,1)',
+      'WebkitBoxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+      'boxShadow': '0 1px 2px 0 rgba(0,0,0,0.2) inset',
+      'textShadow': '1px 1px 0 rgba(255,255,255,0.66)',
+      'WebkitTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+      'MozTransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+      'Otransition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+      'transition': 'all 200ms cubic-bezier(0.42, 0, 0.58, 1)',
+    }
+
+
+  };
     return (
       <div>
         <p></p>
         <Link to="/">Back</Link>
 
-        <h1 className="create-post">
+        <h1  className="create-post">
           Create a New Post
         </h1>
 
-        <p>
+        <p style={styles.label}>
           Headline
         </p>
-        <textarea className="headline"></textarea>
+        <textarea
+          style={styles.textarea}
+          className="headline"
+          placeholder="Headline">
+        </textarea>
 
-        <p>
+        <p style={styles.label}>
           Author
         </p>
-        <textarea className="author"></textarea>
+        <textarea
+          style={styles.textarea}
+          className="author"
+          placeholder="Author">
+        </textarea>
 
-        <p>
+        <p style={styles.label} >
           Text Box
         </p>
-        <textarea className="body"></textarea>
+
+        <textarea style={styles.largeTextarea} className="body" placeholder="Write Away"></textarea>
         <p></p>
-        <button onClick={this.postSimpleText}>Submit</button>
+        <button style={styles.submit} onClick={this.postSimpleText}>Submit</button>
       </div>
     );
   }
