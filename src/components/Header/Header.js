@@ -22,10 +22,7 @@ function Header() {
           <img src={require('./logo-small.png')} width="38" height="38" alt="React" />
           <span className={s.brandTxt}>Float</span>
         </Link>
-        <div className={s.banner}>
-          <h1 className={s.bannerTitle}>Float</h1>
-          <p className={s.bannerDesc}>Article Distribution Made Easy</p>
-        </div>
+
       </div>
     </div>
   );

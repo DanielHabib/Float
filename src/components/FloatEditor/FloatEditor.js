@@ -17,7 +17,7 @@ import Link from '../Link';
 
 //import style from './FloatEditor.scss';
 const title = 'New Post';
-const apiUrl = 'http://localhost:8000/articles';
+const apiUrl = 'http://104.236.228.199/articles';
 const homePage = '/';
 
 

@@ -2218,20 +2218,6 @@ module.exports =
             { className: _Header2.default.brandTxt },
             'Float'
           )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: _Header2.default.banner },
-          _react2.default.createElement(
-            'h1',
-            { className: _Header2.default.bannerTitle },
-            'Float'
-          ),
-          _react2.default.createElement(
-            'p',
-            { className: _Header2.default.bannerDesc },
-            'Article Distribution Made Easy'
-          )
         )
       )
     );
