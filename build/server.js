@@ -4360,7 +4360,7 @@ module.exports =
    */
   
   var title = 'New Post';
-  var apiUrl = 'http://localhost:8000/amp';
+  var apiUrl = 'http://localhost:8000/articles';
   var homePage = '/';
   
   var FloatEditor = function (_Component) {
@@ -4390,7 +4390,6 @@ module.exports =
             author: author,
             body: body
           })
-  
         });
   
         request.done(function (msg) {
@@ -4424,7 +4423,7 @@ module.exports =
           },
           label: {
             'backgroundColor': 'clear',
-            'padding-left': '16px'
+            'paddingLeft': '16px'
           },
           submit: {
   

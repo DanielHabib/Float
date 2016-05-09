@@ -17,7 +17,7 @@ import Link from '../Link';
 
 //import style from './FloatEditor.scss';
 const title = 'New Post';
-const apiUrl = 'http://localhost:8000/amp';
+const apiUrl = 'http://localhost:8000/articles';
 const homePage = '/';
 
 
@@ -30,7 +30,6 @@ class FloatEditor extends Component {
         author = $('.author').val(),
         body = $('.body').val();
 
-
     var request = $.ajax({
       url: apiUrl,
       type: "POST",
@@ -41,7 +40,6 @@ class FloatEditor extends Component {
         author: author,
         body: body
       }),
-
     });
 
     request.done(function(msg) {
@@ -74,7 +72,7 @@ class FloatEditor extends Component {
       },
       label: {
         'backgroundColor': 'clear',
-        'padding-left': '16px',
+        'paddingLeft': '16px',
       },
       submit: {
 
