@@ -25,7 +25,7 @@ const AUTOPREFIXER_BROWSERS = [
   'Safari >= 7.1',
 ];
 const GLOBALS = {
-  'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
+  'process.env.NODE_ENV': '"production"',
   __DEV__: DEBUG,
 };
 
