@@ -133,14 +133,12 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   }));
 });
 
-
-app.set('port', 8800);
 //
 // Launch the server
 // -----------------------------------------------------------------------------
 /* eslint-disable no-console */
 models.sync().catch(err => console.error(err.stack)).then(() => {
-  app.listen(80, () => {
+  app.listen(8080, () => {
     console.log(`The server is running at http://localhost:${port}/`);
   });
 });

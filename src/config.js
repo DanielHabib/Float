@@ -10,7 +10,7 @@
 /* eslint-disable max-len */
 /* jscs:disable maximumLineLength */
 
-export const port =  80;
+export const port =  8080;
 export const host = `localhost:${port}`;
 
 export const databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
