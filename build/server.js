@@ -1645,15 +1645,15 @@ module.exports =
   
   var _register2 = _interopRequireDefault(_register);
   
-  var _content = __webpack_require__(96);
+  var _content = __webpack_require__(97);
   
   var _content2 = _interopRequireDefault(_content);
   
-  var _error = __webpack_require__(100);
+  var _error = __webpack_require__(101);
   
   var _error2 = _interopRequireDefault(_error);
   
-  var _editor = __webpack_require__(104);
+  var _editor = __webpack_require__(105);
   
   var _editor2 = _interopRequireDefault(_editor);
   
@@ -3464,7 +3464,7 @@ module.exports =
               'svg',
               {
                 className: _Login2.default.icon,
-                width: '30',
+                q: true, width: '30',
                 height: '30',
                 viewBox: '0 0 30 30',
                 xmlns: 'http://www.w3.org/2000/svg'
@@ -3696,6 +3696,10 @@ module.exports =
     value: true
   });
   
+  var _stringify = __webpack_require__(55);
+  
+  var _stringify2 = _interopRequireDefault(_stringify);
+  
   var _react = __webpack_require__(43);
   
   var _react2 = _interopRequireDefault(_react);
@@ -3708,17 +3712,23 @@ module.exports =
   
   var _Register2 = _interopRequireDefault(_Register);
   
+  var _jquery = __webpack_require__(96);
+  
+  var _jquery2 = _interopRequireDefault(_jquery);
+  
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
-  var title = 'New User Registration'; /**
-                                        * React Starter Kit (https://www.reactstarterkit.com/)
-                                        *
-                                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                                        *
-                                        * This source code is licensed under the MIT license found in the
-                                        * LICENSE.txt file in the root directory of this source tree.
-                                        */
+  /**
+   * React Starter Kit (https://www.reactstarterkit.com/)
+   *
+   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+   *
+   * This source code is licensed under the MIT license found in the
+   * LICENSE.txt file in the root directory of this source tree.
+   */
   
+  var title = 'New User Registration';
+  var userApiUrl = 'http://104.236.228.199/users';
   function Register(props, context) {
     context.setTitle(title);
     return _react2.default.createElement(
@@ -3735,10 +3745,64 @@ module.exports =
         _react2.default.createElement(
           'p',
           null,
-          '...'
+          'Username'
+        ),
+        _react2.default.createElement('textarea', { className: 'username' }),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Password'
+        ),
+        _react2.default.createElement('textarea', { className: 'password' }),
+        _react2.default.createElement(
+          'p',
+          null,
+          'Confirm Password'
+        ),
+        _react2.default.createElement('textarea', { className: 'passwordConfirm' }),
+        _react2.default.createElement('br', null),
+        _react2.default.createElement(
+          'button',
+          { onClick: foo },
+          'Submit'
         )
       )
     );
+  }
+  
+  function foo() {
+    var username = (0, _jquery2.default)('.username').val(),
+        password = (0, _jquery2.default)('.password').val(),
+        passwordConfirm = (0, _jquery2.default)('.passwordConfirm').val();
+  
+    if (password !== passwordConfirm) {
+      alert("Passwords must match!");
+    }
+  
+    if (username.length < 3) {
+      alert("Username should be longer");
+    }
+  
+    var request = _jquery2.default.ajax({
+      url: userApiUrl,
+      type: "POST",
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      data: (0, _stringify2.default)({
+        username: username,
+        password: password
+      })
+    });
+  
+    request.done(function (msg) {
+      alert("Registration Successful! Try and Log in");
+  
+      //$("#log").html( msg );
+    });
+  
+    request.fail(function (jqXHR, textStatus) {
+      alert("Unable to Register shoot me an email if the issue persists");
+    });
   }
   
   Register.contextTypes = { setTitle: _react.PropTypes.func.isRequired };
@@ -3798,6 +3862,12 @@ module.exports =
 
 /***/ },
 /* 96 */
+/***/ function(module, exports) {
+
+  module.exports = require("jquery");
+
+/***/ },
+/* 97 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3822,7 +3892,7 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _Content = __webpack_require__(97);
+  var _Content = __webpack_require__(98);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -3906,7 +3976,7 @@ module.exports =
       */
 
 /***/ },
-/* 97 */
+/* 98 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -3943,7 +4013,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _Content = __webpack_require__(98);
+  var _Content = __webpack_require__(99);
   
   var _Content2 = _interopRequireDefault(_Content);
   
@@ -4002,11 +4072,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_Content2.default)(Content);
 
 /***/ },
-/* 98 */
+/* 99 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(99);
+      var content = __webpack_require__(100);
       var insertCss = __webpack_require__(54);
   
       if (typeof content === 'string') {
@@ -4036,7 +4106,7 @@ module.exports =
     
 
 /***/ },
-/* 99 */
+/* 100 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(53)();
@@ -4053,7 +4123,7 @@ module.exports =
   };
 
 /***/ },
-/* 100 */
+/* 101 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4070,7 +4140,7 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(101);
+  var _ErrorPage = __webpack_require__(102);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4101,7 +4171,7 @@ module.exports =
       */
 
 /***/ },
-/* 101 */
+/* 102 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4118,7 +4188,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _ErrorPage = __webpack_require__(102);
+  var _ErrorPage = __webpack_require__(103);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
@@ -4174,11 +4244,11 @@ module.exports =
   exports.default = (0, _withStyles2.default)(_ErrorPage2.default)(ErrorPage);
 
 /***/ },
-/* 102 */
+/* 103 */
 /***/ function(module, exports, __webpack_require__) {
 
   
-      var content = __webpack_require__(103);
+      var content = __webpack_require__(104);
       var insertCss = __webpack_require__(54);
   
       if (typeof content === 'string') {
@@ -4208,7 +4278,7 @@ module.exports =
     
 
 /***/ },
-/* 103 */
+/* 104 */
 /***/ function(module, exports, __webpack_require__) {
 
   exports = module.exports = __webpack_require__(53)();
@@ -4222,7 +4292,7 @@ module.exports =
 
 
 /***/ },
-/* 104 */
+/* 105 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4239,11 +4309,11 @@ module.exports =
   
   var _App2 = _interopRequireDefault(_App);
   
-  var _ErrorPage = __webpack_require__(101);
+  var _ErrorPage = __webpack_require__(102);
   
   var _ErrorPage2 = _interopRequireDefault(_ErrorPage);
   
-  var _FloatEditor = __webpack_require__(105);
+  var _FloatEditor = __webpack_require__(106);
   
   var _FloatEditor2 = _interopRequireDefault(_FloatEditor);
   
@@ -4276,7 +4346,7 @@ module.exports =
   };
 
 /***/ },
-/* 105 */
+/* 106 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -4317,7 +4387,7 @@ module.exports =
   
   var _withStyles2 = _interopRequireDefault(_withStyles);
   
-  var _jquery = __webpack_require__(106);
+  var _jquery = __webpack_require__(96);
   
   var _jquery2 = _interopRequireDefault(_jquery);
   
@@ -4529,12 +4599,6 @@ module.exports =
   //FloatEditor.contextTypes = { setTitle: PropTypes.func.isRequired };
   
   exports.default = FloatEditor;
-
-/***/ },
-/* 106 */
-/***/ function(module, exports) {
-
-  module.exports = require("jquery");
 
 /***/ },
 /* 107 */
