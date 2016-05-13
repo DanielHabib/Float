@@ -24,7 +24,7 @@ function Login(props, context) {
           <a className={s.facebook} href="/login/facebook">
             <svg
               className={s.icon}
-              width="30"
+       q       width="30"
               height="30"
               viewBox="0 0 30 30"
               xmlns="http://www.w3.org/2000/svg"

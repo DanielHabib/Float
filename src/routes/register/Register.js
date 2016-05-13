@@ -19,7 +19,12 @@ function Register(props, context) {
     <div className={s.root}>
       <div className={s.container}>
         <h1>{title}</h1>
-        <p>...</p>
+        <p>Username</p>
+        <textarea></textarea>
+        <p>Password</p>
+        <textarea></textarea>
+        <p>Confirm Password</p>
+        <textarea></textarea>
       </div>
     </div>
   );

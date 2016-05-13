@@ -286,7 +286,6 @@ module.exports =
     }));
   });
   
-  app.set('port', 8800);
   //
   // Launch the server
   // -----------------------------------------------------------------------------
@@ -294,7 +293,7 @@ module.exports =
   _models2.default.sync().catch(function (err) {
     return console.error(err.stack);
   }).then(function () {
-    app.listen(80, function () {
+    app.listen(8080, function () {
       console.log('The server is running at http://localhost:' + _config.port + '/');
     });
   });
@@ -725,7 +724,7 @@ module.exports =
   /* eslint-disable max-len */
   /* jscs:disable maximumLineLength */
   
-  var port = exports.port = 80;
+  var port = exports.port = 8080;
   var host = exports.host = 'localhost:' + port;
   
   var databaseUrl = exports.databaseUrl = process.env.DATABASE_URL || 'sqlite:database.sqlite';
