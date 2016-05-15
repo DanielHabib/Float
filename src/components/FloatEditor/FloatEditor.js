@@ -142,8 +142,6 @@ class FloatEditor extends Component {
   };
     return (
       <div>
-        <p></p>
-        <Link to="/">Back</Link>
 
         <h1  className="create-post">
           Create a New Post

@@ -18,6 +18,7 @@ import register from './register';
 import content from './content';
 import error from './error';
 import editor from './editor';
+import articles from './articles';
 
 export default {
 
@@ -29,7 +30,8 @@ export default {
     register,
     content,
     editor,
-    error
+    error,
+    articles
   ],
 
   async action({ next, render, context }) {
