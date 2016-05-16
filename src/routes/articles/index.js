@@ -21,7 +21,7 @@ export default {
       <div>
         <MyHeader />
         <h1>
-          Lists of Articles:
+          My Articles:
         </h1>
         <ArticleList />
       </div>

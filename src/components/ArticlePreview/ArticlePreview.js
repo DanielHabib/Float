@@ -11,11 +11,27 @@ import React, { Component, PropTypes} from 'react';
 
 class ArticlePreview extends Component {
 
+  submit(){
+    alert("Submit");
+  }
+
   render() {
+
+    var style = {
+      container: {
+        background: "lightgrey"
+      },
+      headline: {
+        mariginLeft: 10
+      },
+      author: {
+        marginLeft: 40
+      }
+    };
     return (
-      <div>
-        <h1>{this.props.headline}</h1>
-        <p>{this.props.author}</p>
+      <div style={style.container} onClick={this.submit}>
+        <h1 style={style.headline}>{this.props.headline}</h1>
+        <p style={style.author}>{this.props.author}</p>
       </div>
     );
   }

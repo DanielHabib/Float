@@ -112,7 +112,7 @@ module.exports =
   
   var _routes2 = _interopRequireDefault(_routes);
   
-  var _assets = __webpack_require__(113);
+  var _assets = __webpack_require__(112);
   
   var _assets2 = _interopRequireDefault(_assets);
   
@@ -198,7 +198,7 @@ module.exports =
                       case 0:
                         css = [];
                         statusCode = 200;
-                        template = __webpack_require__(114);
+                        template = __webpack_require__(113);
                         data = { title: '', description: '', css: '', body: '', entry: _assets2.default.main.js };
   
   
@@ -277,7 +277,7 @@ module.exports =
   app.use(function (err, req, res, next) {
     // eslint-disable-line no-unused-vars
     console.log(pe.render(err)); // eslint-disable-line no-console
-    var template = __webpack_require__(116);
+    var template = __webpack_require__(115);
     var statusCode = err.status || 500;
     res.status(statusCode);
     res.send(template({
@@ -4800,7 +4800,7 @@ module.exports =
         _react2.default.createElement(
           'h1',
           null,
-          'Lists of Articles:'
+          'My Articles:'
         ),
         _react2.default.createElement(_ArticleList2.default, null)
       ));
@@ -4848,20 +4848,17 @@ module.exports =
   
   var _react2 = _interopRequireDefault(_react);
   
-  var _ArticlePreview = __webpack_require__(117);
+  var _ArticlePreview = __webpack_require__(111);
   
   var _ArticlePreview2 = _interopRequireDefault(_ArticlePreview);
   
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  var _constants = __webpack_require__(94);
   
-  /**
-   * React Starter Kit (https://www.reactstarterkit.com/)
-   *
-   * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE.txt file in the root directory of this source tree.
-   */
+  var constants = _interopRequireWildcard(_constants);
+  
+  function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
   
   var ArticleList = function (_Component) {
     (0, _inherits3.default)(ArticleList, _Component);
@@ -4878,13 +4875,47 @@ module.exports =
     (0, _createClass3.default)(ArticleList, [{
       key: 'renderArticlePreview',
       value: function renderArticlePreview() {
-        var cbs = this.state.articlePreviews;
-        cbs.push(_react2.default.createElement(_ArticlePreview2.default, {
-  
+        var articlePreviewList = this.state.articlePreviews;
+        articlePreviewList.push(_react2.default.createElement(_ArticlePreview2.default, {
           headline: 'This is a headline',
           author: 'this is the author'
         }));
-        this.setState({ articlePreviews: cbs });
+        this.setState({ articlePreviews: articlePreviewList });
+      }
+    }, {
+      key: 'fetchArticles',
+      value: function fetchArticles() {
+        var request = $.ajax({
+          url: constants.ENDPOINT_ARTICLES + "?user=" + this.props.userId,
+          type: "GET",
+          contentType: "application/json; charset=utf-8",
+          dataType: "json"
+        });
+  
+        request.done(function (msg) {
+          alert("Registration Successful! Try and Log in");
+          //$("#log").html( msg );
+          populateArticles();
+        });
+  
+        request.fail(function (jqXHR, textStatus) {
+          alert("Unable to Register shoot me an email if the issue persists");
+          return false;
+        });
+      }
+    }, {
+      key: 'populateArticles',
+      value: function populateArticles(articles) {
+  
+        var articlePreviewList = this.state.articlePreviews;
+  
+        for (article in articles) {
+          articlePreviewList.push(_react2.default.createElement(_ArticlePreview2.default, {
+            headline: article.headline,
+            author: article.Author
+          }));
+        }
+        this.setState({ articlePreviews: articlePreviewList });
       }
     }, {
       key: 'render',
@@ -4898,33 +4929,125 @@ module.exports =
             author: 'this is the author' }),
           _react2.default.createElement(_ArticlePreview2.default, {
             headline: 'This is a headline 2',
-            author: 'this is the author 2' }),
-          _react2.default.createElement(
-            'button',
-            { onClick: this.renderArticlePreview.bind(this) },
-            'click here'
-          )
+            author: 'this is the author 2' })
         );
       }
     }]);
     return ArticleList;
-  }(_react.Component);
+  }(_react.Component); /**
+                        * React Starter Kit (https://www.reactstarterkit.com/)
+                        *
+                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                        *
+                        * This source code is licensed under the MIT license found in the
+                        * LICENSE.txt file in the root directory of this source tree.
+                        */
   
   exports.default = ArticleList;
 
 /***/ },
-/* 111 */,
-/* 112 */,
-/* 113 */
+/* 111 */
+/***/ function(module, exports, __webpack_require__) {
+
+  "use strict";
+  
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  
+  var _getPrototypeOf = __webpack_require__(45);
+  
+  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+  
+  var _classCallCheck2 = __webpack_require__(46);
+  
+  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+  
+  var _createClass2 = __webpack_require__(47);
+  
+  var _createClass3 = _interopRequireDefault(_createClass2);
+  
+  var _possibleConstructorReturn2 = __webpack_require__(48);
+  
+  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+  
+  var _inherits2 = __webpack_require__(49);
+  
+  var _inherits3 = _interopRequireDefault(_inherits2);
+  
+  var _react = __webpack_require__(43);
+  
+  var _react2 = _interopRequireDefault(_react);
+  
+  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+  
+  var ArticlePreview = function (_Component) {
+    (0, _inherits3.default)(ArticlePreview, _Component);
+  
+    function ArticlePreview() {
+      (0, _classCallCheck3.default)(this, ArticlePreview);
+      return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(ArticlePreview).apply(this, arguments));
+    }
+  
+    (0, _createClass3.default)(ArticlePreview, [{
+      key: "submit",
+      value: function submit() {
+        alert("Submit");
+      }
+    }, {
+      key: "render",
+      value: function render() {
+  
+        var style = {
+          container: {
+            background: "lightgrey"
+          },
+          headline: {
+            mariginLeft: 10
+          },
+          author: {
+            marginLeft: 40
+          }
+        };
+        return _react2.default.createElement(
+          "div",
+          { style: style.container, onClick: this.submit },
+          _react2.default.createElement(
+            "h1",
+            { style: style.headline },
+            this.props.headline
+          ),
+          _react2.default.createElement(
+            "p",
+            { style: style.author },
+            this.props.author
+          )
+        );
+      }
+    }]);
+    return ArticlePreview;
+  }(_react.Component); /**
+                        * React Starter Kit (https://www.reactstarterkit.com/)
+                        *
+                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
+                        *
+                        * This source code is licensed under the MIT license found in the
+                        * LICENSE.txt file in the root directory of this source tree.
+                        */
+  
+  exports.default = ArticlePreview;
+
+/***/ },
+/* 112 */
 /***/ function(module, exports) {
 
   module.exports = require("./assets");
 
 /***/ },
-/* 114 */
+/* 113 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(115);
+  var jade = __webpack_require__(114);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/daniel.habib/repos/Float/src/views/index.jade" ) ];
@@ -5027,7 +5150,7 @@ module.exports =
   }
 
 /***/ },
-/* 115 */
+/* 114 */
 /***/ function(module, exports, __webpack_require__) {
 
   'use strict';
@@ -5279,10 +5402,10 @@ module.exports =
 
 
 /***/ },
-/* 116 */
+/* 115 */
 /***/ function(module, exports, __webpack_require__) {
 
-  var jade = __webpack_require__(115);
+  var jade = __webpack_require__(114);
   
   module.exports = function template(locals) {
   var jade_debug = [ new jade.DebugItem( 1, "/Users/daniel.habib/repos/Float/src/views/error.jade" ) ];
@@ -5561,81 +5684,6 @@ module.exports =
     jade.rethrow(err, jade_debug[0].filename, jade_debug[0].lineno, "doctype html\nhtml(lang=\"en\")\n  head\n    meta(charset=\"utf-8\")\n    title Internal Server Error\n    meta(name=\"viewport\", content=\"width=device-width, initial-scale=1\")\n    style.\n      * {\n        line-height: 1.2;\n        margin: 0;\n      }\n\n      html {\n        color: #888;\n        display: table;\n        font-family: sans-serif;\n        height: 100%;\n        text-align: center;\n        width: 100%;\n      }\n\n      body {\n        display: table-cell;\n        vertical-align: middle;\n        margin: 2em auto;\n      }\n\n      h1 {\n        color: #555;\n        font-size: 2em;\n        font-weight: 400;\n      }\n\n      p {\n        margin: 0 auto;\n        width: 280px;\n      }\n\n      pre {\n        text-align: left;\n        margin-top: 2rem;\n      }\n\n      @media only screen and (max-width: 280px) {\n\n        body, p {\n          width: 95%;\n        }\n\n        h1 {\n          font-size: 1.5em;\n          margin: 0 0 0.3em;\n        }\n\n      }\n\n  body\n    h1 Internal Server Error\n    p Sorry, something went wrong.\n    pre= stack\n// IE needs 512+ bytes: http://blogs.msdn.com/b/ieinternals/archive/2010/08/19/http-error-pages-in-internet-explorer.aspx\n");
   }
   }
-
-/***/ },
-/* 117 */
-/***/ function(module, exports, __webpack_require__) {
-
-  'use strict';
-  
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  
-  var _getPrototypeOf = __webpack_require__(45);
-  
-  var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-  
-  var _classCallCheck2 = __webpack_require__(46);
-  
-  var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-  
-  var _createClass2 = __webpack_require__(47);
-  
-  var _createClass3 = _interopRequireDefault(_createClass2);
-  
-  var _possibleConstructorReturn2 = __webpack_require__(48);
-  
-  var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-  
-  var _inherits2 = __webpack_require__(49);
-  
-  var _inherits3 = _interopRequireDefault(_inherits2);
-  
-  var _react = __webpack_require__(43);
-  
-  var _react2 = _interopRequireDefault(_react);
-  
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-  
-  var ArticlePreview = function (_Component) {
-    (0, _inherits3.default)(ArticlePreview, _Component);
-  
-    function ArticlePreview() {
-      (0, _classCallCheck3.default)(this, ArticlePreview);
-      return (0, _possibleConstructorReturn3.default)(this, (0, _getPrototypeOf2.default)(ArticlePreview).apply(this, arguments));
-    }
-  
-    (0, _createClass3.default)(ArticlePreview, [{
-      key: 'render',
-      value: function render() {
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            this.props.headline
-          ),
-          _react2.default.createElement(
-            'p',
-            null,
-            this.props.author
-          )
-        );
-      }
-    }]);
-    return ArticlePreview;
-  }(_react.Component); /**
-                        * React Starter Kit (https://www.reactstarterkit.com/)
-                        *
-                        * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
-                        *
-                        * This source code is licensed under the MIT license found in the
-                        * LICENSE.txt file in the root directory of this source tree.
-                        */
-  
-  exports.default = ArticlePreview;
 
 /***/ }
 /******/ ]);
