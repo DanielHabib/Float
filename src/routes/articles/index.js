@@ -10,8 +10,8 @@
 import React from 'react';
 import App from '../../components/App';
 import ErrorPage from '../error/ErrorPage';
-
-import FloatEditor from '../../components/FloatEditor/FloatEditor';
+import MyHeader from '../../components/MyHeader/MyHeader';
+import ArticleList from '../../components/ArticleList';
 export default {
 
   path: '/articles',
@@ -19,9 +19,11 @@ export default {
   action({ render, context, error }) {
     return render(
       <div>
-        <p>
+        <MyHeader />
+        <h1>
           Lists of Articles:
-        </p>
+        </h1>
+        <ArticleList />
       </div>
     );
   },

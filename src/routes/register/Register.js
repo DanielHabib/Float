@@ -37,12 +37,14 @@ function foo(){
       password = $('#password').val(),
       passwordConfirm = $('#passwordConfirm').val();
 
-  if (password !== passwordConfirm){
-    alert( "Passwords must match!");
-  }
-
   if (email.length < 3){
     alert("Username should be longer");
+    return false;
+  }
+
+  if (password !== passwordConfirm){
+    alert( "Passwords must match!");
+    return false;
   }
 
   var request = $.ajax({
@@ -63,6 +65,7 @@ function foo(){
 
   request.fail(function(jqXHR, textStatus) {
     alert( "Unable to Register shoot me an email if the issue persists");
+    return false;
   });
 }
 

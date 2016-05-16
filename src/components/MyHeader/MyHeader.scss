@@ -7,11 +7,6 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 $brand-color: #61dafb;
-.container {
-  margin: 0 auto;
-  padding: 20px 0;
-  max-width: 100%;
-}
 
 .brand {
   color: color($brand-color lightness(+10%));
@@ -19,8 +14,10 @@ $brand-color: #61dafb;
   font-size: 1.75em; /* ~28px */
 }
 
-.root {
-  margin: 0;
+.navigation {
+  background-color: blue;
+  margin: 0 auto;
+
 }
 
 .link {
@@ -54,4 +51,9 @@ $brand-color: #61dafb;
 
 .spacer {
   color: rgba(255, 255, 255, 0.3);
+}
+
+.root {
+  background: #373277;
+  color: #fff;
 }

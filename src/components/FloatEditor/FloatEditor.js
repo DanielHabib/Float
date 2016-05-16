@@ -14,10 +14,11 @@ import $ from 'jquery';
 import Header from '../Header';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import Link from '../Link';
+import * as constants from '../../constants';
+
 
 //import style from './FloatEditor.scss';
 const title = 'New Post';
-const apiUrl = 'http://104.236.228.199/articles';
 const homePage = '/';
 
 
@@ -31,7 +32,7 @@ class FloatEditor extends Component {
         body = $('.body').val();
 
     var request = $.ajax({
-      url: apiUrl,
+      url: constants.ENDPOINT_ARTICLES,
       type: "POST",
       contentType: "application/json; charset=utf-8",
       dataType: "json",
@@ -116,7 +117,7 @@ class FloatEditor extends Component {
 
       largeTextarea: {
       width: '90%',
-      height: '400px',
+      height: '300px',
       'display': 'inline-block',
       'WebkitBoxSizing': 'content-box',
       'MozBoxSizing': 'content-box',

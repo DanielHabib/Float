@@ -10,8 +10,9 @@
 import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Login.scss';
-
+import * as constants from '../../constants';
 const title = 'Log In';
+import $ from 'jquery';
 
 function Login(props, context) {
   context.setTitle(title);
@@ -19,16 +20,16 @@ function Login(props, context) {
     <div className={s.root}>
       <div className={s.container}>
         <h1>{title}</h1>
-        <form method="post">
+        <div id="loginForm">
           <div className={s.formGroup}>
-            <label className={s.label} htmlFor="usernameOrEmail">
+            <label className={s.label} htmlFor="email">
               Email address:
             </label>
             <input
               className={s.input}
-              id="usernameOrEmail"
+              id="email"
               type="text"
-              name="usernameOrEmail"
+              name="email"
               autoFocus
             />
           </div>
@@ -44,15 +45,27 @@ function Login(props, context) {
             />
           </div>
           <div className={s.formGroup}>
-            <button className={s.button} type="submit">
+            <button className={s.button} onClick={submitForm}>
               Log in
             </button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
 }
+
+function submitForm() {
+    console.log("Submitted");
+    $.ajax({
+      type: 'POST',
+      url: constants.ENDPOINT_LOGIN,
+      data: { email: $("#email").val(),
+        password: $("#password").val() }
+    });
+    return false;
+}
+
 
 Login.contextTypes = { setTitle: PropTypes.func.isRequired };
 

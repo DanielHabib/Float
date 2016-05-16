@@ -11,6 +11,7 @@ import React, { Component, PropTypes } from 'react';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import s from './App.scss';
 import Header from '../Header';
+import MyHeader from '../MyHeader';
 import Feedback from '../Feedback';
 import Footer from '../Footer';
 import Bottom from '../Bottom';
@@ -54,7 +55,7 @@ class App extends Component {
   render() {
     return !this.props.error ? (
       <div>
-        <Header />
+        <MyHeader />
         {this.props.children}
         <Bottom>
           <Footer />

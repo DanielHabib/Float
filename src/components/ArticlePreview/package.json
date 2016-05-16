@@ -1,0 +1,6 @@
+{
+  "name": "ArticlePreview",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ArticlePreview.js"
+}

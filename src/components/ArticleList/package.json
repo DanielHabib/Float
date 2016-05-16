@@ -1,0 +1,6 @@
+{
+  "name": "ArticleList",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./ArticleList.js"
+}
