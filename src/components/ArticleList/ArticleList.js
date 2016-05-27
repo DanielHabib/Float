@@ -30,7 +30,7 @@ class ArticleList extends Component {
 
   fetchArticles () {
     var request = $.ajax({
-      url: constants.ENDPOINT_ARTICLES + "?user=" + this.props.userId,
+      url: constants.ENDPOINT_ARTICLES + "?userId=" + this.props.userId,
       type: "GET",
       contentType: "application/json; charset=utf-8",
       dataType: "json",

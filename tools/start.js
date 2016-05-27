@@ -16,6 +16,7 @@ import runServer from './runServer';
 import webpackConfig from './webpack.config';
 import clean from './clean';
 import copy from './copy';
+import * as constants from '../src/constants.js';
 
 const DEBUG = !process.argv.includes('--release');
 
@@ -89,7 +90,7 @@ async function start() {
           const bs = Browsersync.create();
           bs.init({
             ...(DEBUG ? {} : { notify: false, ui: false }),
-            port:8080,
+            port:constants.PORT,
 
             proxy: {
               target: host,
