@@ -11,6 +11,7 @@ import React, { PropTypes } from 'react';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Login.scss';
 import * as constants from '../../constants';
+import * as globals from '../../globals';
 const title = 'Log In';
 import $ from 'jquery';
 
@@ -64,6 +65,8 @@ function submitForm() {
       data: { email: $("#email").val(),
         password: $("#password").val() }
     });
+    globals.LoggedIn = true;
+
     return false;
 }
 

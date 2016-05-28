@@ -15,6 +15,8 @@ import cx from 'classnames';
 import Header from '../Header';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import Link from '../Link';
+import * as globals from '../../globals.js';
+
 //import s from './MyHeader.scss';
 
 //import style from './FloatEditor.scss';
@@ -22,11 +24,16 @@ const title = 'New Post';
 const apiUrl = 'http://104.236.228.199/articles';
 const homePage = '/';
 
-
 class MyHeader extends Component {
+// Get the state to check whether or not you are logged in. If so, show my articles and create,
+//  If not show sign up & logged in at the top
+  constructor (props) {
+    super(props);
 
+  };
   render() {
-  var style = {
+
+    var style = {
 
     brand: {
       color: "#61dafb",
@@ -67,22 +74,34 @@ class MyHeader extends Component {
       }
 };
 
+    var headerOptions = '';
+    if (globals.LoggedIn) {
+      headerOptions =(
+        <span>
+          <Link style={style.link} to="/articles">My Articles</Link>
+          <Link style={style.link} to="/editor">Create +</Link>
+        </span>
+        );
+    } else{
+      headerOptions = (
+        <span>
+          <Link style={style.link} to="/login">Log in</Link>
+          <span style={style.spacer}>or</span>
+          <Link style={style.link} to="/register">Sign up</Link>
+        </span>
+          );
+    }
+
     return (
       <div style={style.root}>
             <Link style={style.brand} to="/">
               <span style={style.brandTxt}>Float</span>
             </Link>
             <span style={style.navigation}>
-
               <Link style={style.link} to="/">Home</Link>
               <Link style={style.link} to="/contact">Contact</Link>
               <span style={style.spacer}> | </span>
-              <Link style={style.link} to="/login">Log in</Link>
-              <span style={style.spacer}>or</span>
-              <Link style={style.link} to="/register">Sign up</Link>
-              <span style={style.spacer}>|</span>
-              <Link style={style.link} to="/articles">My Articles</Link>
-              <Link style={style.link} to="/editor">Create +</Link>
+              {headerOptions}
             </span>
         </div>
     );
