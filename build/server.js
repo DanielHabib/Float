@@ -3833,11 +3833,11 @@ module.exports =
   });
   // Prod
   var API_URI = exports.API_URI = "http://float.press/";
-  var PORT = exports.PORT = 80;
+  //export const PORT = 80;
   
   // Dev
   //export const API_URI = "localhost:1234";
-  //export const PORT = 8080;
+  var PORT = exports.PORT = 8080;
   
   var ENDPOINT_LOGIN = exports.ENDPOINT_LOGIN = API_URI + "login/";
   var ENDPOINT_SIGNUP = exports.ENDPOINT_SIGNUP = API_URI + "signup/";

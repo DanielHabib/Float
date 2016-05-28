@@ -13,7 +13,7 @@ import s from './Register.scss';
 import $ from 'jquery';
 
 const title = 'New User Registration';
-const userApiUrl = 'http://104.236.228.199/users';
+import * as constants from '../../constants.js';
 function Register(props, context) {
   context.setTitle(title);
   return (
@@ -48,7 +48,7 @@ function foo(){
   }
 
   var request = $.ajax({
-    url: userApiUrl,
+    url: constants.ENDPOINT_SIGNUP,
     type: "POST",
     contentType: "application/json; charset=utf-8",
     dataType: "json",

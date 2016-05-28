@@ -16,12 +16,12 @@ import Header from '../Header';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import Link from '../Link';
 import * as globals from '../../globals.js';
+import * as constants from '../../constants.js';
 
 //import s from './MyHeader.scss';
 
 //import style from './FloatEditor.scss';
 const title = 'New Post';
-const apiUrl = 'http://104.236.228.199/articles';
 const homePage = '/';
 
 class MyHeader extends Component {
