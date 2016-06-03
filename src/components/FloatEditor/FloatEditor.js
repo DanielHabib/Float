@@ -24,8 +24,10 @@ const homePage = '/';
 
 
 class FloatEditor extends Component {
+  headerImage = '';
   onDrop (files) {
   console.log('Received files: ', files);
+    this.headerImage = files;
 }
 
   postSimpleText(){
@@ -42,6 +44,7 @@ class FloatEditor extends Component {
       dataType: "json",
       data: JSON.stringify({
         headline: headline,
+        headlineImage : this.headerImage,
         author: author,
         body: body
       }),

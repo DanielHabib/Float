@@ -36,7 +36,7 @@ class MyHeader extends Component {
     var style = {
 
     brand: {
-      color: "#61dafb",
+      color: "#5FAA9D",
       "textDecoration": "none",
       fontSize: "1.75em",
       marginLeft: 20,
@@ -51,7 +51,7 @@ class MyHeader extends Component {
 
   link:{
     display: "inline-block",
-    color: "#61dafb",
+    color: "#5FAA9D",
     padding: "3px 8px",
     textDecoration: "none",
     fontFamily: "Segoe UI, HelveticaNeue-Light, sans-serif",
