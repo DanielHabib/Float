@@ -66,7 +66,7 @@ class MyHeader extends Component {
     root:{
       width: "105%",
       background: "#373277",
-      color: "#fff",
+      color: "#557694",
       padding: "20px 0",
       marginTop: -10,
       marginLeft: -10,
