@@ -26,7 +26,7 @@ const homePage = '/';
 class FloatEditor extends Component {
   onDrop (files) {
   console.log('Received files: ', files);
-},
+}
 
   postSimpleText(){
     console.log("request sent");
