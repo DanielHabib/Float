@@ -46,7 +46,6 @@ class MyHeader extends Component {
       marginRight: 70,
       float: "right",
       right: 0
-
     },
 
   link:{

@@ -154,8 +154,11 @@ class FloatEditor extends Component {
           Create a New Post
         </h1>
 
+        <p style={styles.label}>
+          Custom Header Image
+        </p>
         <Dropzone onDrop={this.onDrop}>
-          <div>Upload A Cover Photo</div>
+          <div> </div>
         </Dropzone>
 
         <p style={styles.label}>
