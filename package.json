@@ -34,6 +34,8 @@
     "pretty-error": "2.0.0",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
+    "react-dropzone": "^3.5.0",
+    "react-dropzone-es6": "^1.0.2",
     "sequelize": "^3.21.0",
     "source-map-support": "0.4.0",
     "sqlite3": "^3.1.3",
