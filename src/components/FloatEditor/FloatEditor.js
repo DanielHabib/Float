@@ -15,6 +15,7 @@ import Header from '../Header';
 import emptyFunction from 'fbjs/lib/emptyFunction';
 import Link from '../Link';
 import * as constants from '../../constants';
+import Dropzone  from 'react-dropzone';
 
 
 //import style from './FloatEditor.scss';
@@ -23,6 +24,9 @@ const homePage = '/';
 
 
 class FloatEditor extends Component {
+  onDrop (files) {
+  console.log('Received files: ', files);
+},
 
   postSimpleText(){
     console.log("request sent");
@@ -146,6 +150,10 @@ class FloatEditor extends Component {
         <h1  className="create-post">
           Create a New Post
         </h1>
+
+        <Dropzone onDrop={this.onDrop}>
+          <div>Upload A Cover Photo</div>
+        </Dropzone>
 
         <p style={styles.label}>
           Headline
