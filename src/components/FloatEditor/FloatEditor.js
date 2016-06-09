@@ -31,7 +31,6 @@ class FloatEditor extends Component {
 }
 
   postSimpleText(){
-    console.log("request sent");
 
     var headline = $('.headline').val(),
         author = $('.author').val(),
@@ -51,7 +50,16 @@ class FloatEditor extends Component {
     });
 
     request.done(function(msg) {
+      var articles = msg.articles,
+          articleDiv = $('.articles')
+          ;
+
+      for (var article in articles){
+        articleDiv.appendChild('<a href=article.url/>');2q
+      }
+
       alert( "Request success: " + msg );
+
 
       //$("#log").html( msg );
     });
@@ -186,6 +194,8 @@ class FloatEditor extends Component {
         <textarea style={styles.largeTextarea} className="body" placeholder="Write Away"></textarea>
         <p></p>
         <button style={styles.submit} onClick={this.postSimpleText}>Submit</button>
+        <div class="articles">
+        </div>
       </div>
     );
   }
