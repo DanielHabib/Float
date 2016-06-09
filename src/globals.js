@@ -1,3 +1,3 @@
 // Globals
 
-export var LoggedIn = false;
+export var LoggedIn = true;
